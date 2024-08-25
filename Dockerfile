@@ -26,6 +26,7 @@ ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE true
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 # Labels
+LABEL org.opencontainers.image.name          "blueteck/scp-tools-gitlab"
 LABEL org.opencontainers.image.title         "SAP Cloud Platform (SAP BTP) Tools optimized for GitLab Runner"
 LABEL org.opencontainers.image.description   "The following software and tools are included: java, python3, cf, neo.sh, mbt, node, mkdocs"
 LABEL org.opencontainers.image.url           "https://hub.docker.com/r/blueteck/scp-tools-gitlab"
@@ -60,8 +61,6 @@ RUN apt-get update -yq && \
 	apt-get install -yq nodejs && \
 # Install Node.js packages (https://www.npmjs.com/package)
 	npm install @ui5/cli -g && \
-	npm install grunt-cli -g && \
-	npm install gulp-cli -g && \
 	npm install showdown -g && \
 	npm install eslint -g && \
 	npm install eslint-plugin-ui5 -g && \
@@ -81,7 +80,7 @@ RUN apt-get update -yq && \
   wget -q -O - "https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key" | gpg --dearmor -o /etc/apt/trusted.gpg.d/cloudfoundry.gpg && \
 	echo "deb [signed-by=/etc/apt/trusted.gpg.d/cloudfoundry.gpg] https://packages.cloudfoundry.org/debian stable main" > /etc/apt/sources.list.d/cloudfoundry-cli.list && \
 	apt-get update -yq && \
-	apt-get install -yq cf-cli && \
+	apt-get install -yq cf8-cli && \
 # ...so that "cf deploy" is available
 	cf install-plugin multiapps -f && \
 # Install SAP Cloud Platform Neo Environment SDK (https://tools.hana.ondemand.com/#cloud)
