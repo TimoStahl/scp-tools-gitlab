@@ -1,9 +1,9 @@
 FROM ubuntu:24.04
 
 # Versions
-ENV NODE_VERSION       "18"
-ENV SAPMACHINE_VERSION "11"
-ENV NEO_SDK_VERSION    "4.76.4"
+ENV NODE_VERSION       "20"
+ENV SAPMACHINE_VERSION "21"
+ENV NEO_SDK_VERSION    "4.84.7"
 
 # Download URLs
 ENV NEO_SDK_URL        "https://tools.hana.ondemand.com/sdk/neo-java-web-sdk-$NEO_SDK_VERSION.zip"
@@ -11,7 +11,7 @@ ENV NEO_SDK_URL        "https://tools.hana.ondemand.com/sdk/neo-java-web-sdk-$NE
 ENV NEO_SDK_HOME       "/opt/neo-sdk"
 ENV MTA_BUILDER_HOME   "/opt/mta-builder"
 
-ENV JAVA_HOME "/usr/lib/jvm/sapmachine-11"
+ENV JAVA_HOME "/usr/lib/jvm/sapmachine-21"
 ENV PATH="${JAVA_HOME}/bin:${NEO_SDK_HOME}/tools:${PATH}"
 
 # Default to UTF-8 file.encoding
@@ -28,10 +28,10 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 # Labels
 LABEL org.opencontainers.image.title         "SAP Cloud Platform (SAP BTP) Tools optimized for GitLab Runner"
 LABEL org.opencontainers.image.description   "The following software and tools are included: java, python3, cf, neo.sh, mbt, node, mkdocs"
-LABEL org.opencontainers.image.url           "https://hub.docker.com/r/cyclenerd/scp-tools-gitlab"
-LABEL org.opencontainers.image.authors       "https://github.com/Cyclenerd/scp-tools-gitlab/graphs/contributors"
-LABEL org.opencontainers.image.documentation "https://github.com/Cyclenerd/scp-tools-gitlab/blob/master/README.md"
-LABEL org.opencontainers.image.source        "https://github.com/Cyclenerd/scp-tools-gitlab"
+LABEL org.opencontainers.image.url           "https://hub.docker.com/r/blueteck/scp-tools-gitlab"
+LABEL org.opencontainers.image.authors       "https://github.com/TimoStahl/scp-tools-gitlab/graphs/contributors"
+LABEL org.opencontainers.image.documentation "https://github.com/TimoStahl/scp-tools-gitlab/blob/master/README.md"
+LABEL org.opencontainers.image.source        "https://github.com/TimoStahl/scp-tools-gitlab"
 
 RUN apt-get update -yq && \
 # Install base packages
@@ -117,8 +117,3 @@ RUN apt-get update -yq && \
 	pip3 cache purge && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/*
-
-# If you're reading this and have any feedback on how this image could be
-# improved, please open an issue or a pull request so we can discuss it!
-#
-#   https://github.com/Cyclenerd/scp-tools-gitlab/issues
