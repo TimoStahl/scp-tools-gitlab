@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 # Versions
 ENV NODE_VERSION       "20"
 ENV SAPMACHINE_VERSION "21"
-ENV NEO_SDK_VERSION    "4.84.7"
+ENV NEO_SDK_VERSION    "4.85.8"
 
 # Download URLs
 ENV NEO_SDK_URL        "https://tools.hana.ondemand.com/sdk/neo-java-web-sdk-$NEO_SDK_VERSION.zip"
@@ -43,6 +43,7 @@ RUN apt-get update -yq && \
 		gettext-base \
 		git \
 		gnupg \
+  		jq \
 		lsb-release \
 		python3-pip \
 		tar \
