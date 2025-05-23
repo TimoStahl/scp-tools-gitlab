@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 # Versions
 ENV NODE_VERSION       "22"
 ENV SAPMACHINE_VERSION "21"
-ENV NEO_SDK_VERSION    "5.14.6"
+ENV NEO_SDK_VERSION    "5.22.0"
 
 # Download URLs
 ENV NEO_SDK_URL        "https://tools.hana.ondemand.com/sdk/neo-java-web-sdk-$NEO_SDK_VERSION.zip"
