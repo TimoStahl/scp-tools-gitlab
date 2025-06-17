@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 # Versions
 ENV NODE_VERSION       "22"
 ENV SAPMACHINE_VERSION "21"
-ENV NEO_SDK_VERSION    "5.22.0"
+ENV NEO_SDK_VERSION    "5.24.2"
 
 # Download URLs
 ENV NEO_SDK_URL        "https://tools.hana.ondemand.com/sdk/neo-java-web-sdk-$NEO_SDK_VERSION.zip"
@@ -61,11 +61,7 @@ RUN apt-get update -yq && \
 	apt-get update -yq && \
 	apt-get install -yq nodejs && \
 # Install Node.js packages (https://www.npmjs.com/package)
-	npm install @ui5/cli -g && \
-	npm install showdown -g && \
-	npm install eslint -g && \
-	npm install eslint-plugin-ui5 -g && \
-	npm install eslint-config-ui5 -g && \
+	npm install pnpm -g && \
 # Install Maven
   apt-get -yq --no-install-recommends install maven && \
 # Install SapMachine JDK
@@ -96,7 +92,6 @@ RUN apt-get update -yq && \
 # MkDocs
 	pip3 install mkdocs && \
 	pip3 install mkdocs-material && \
-	pip3 install mkdocs-minify-plugin && \
 # Basic smoke test
 	cf --version && \
 	envsubst --version | head -1 && \
